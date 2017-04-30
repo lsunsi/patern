@@ -1,0 +1,19 @@
+{
+  "name": "patern",
+  "version": "0.1.0-SNAPSHOT",
+  "main": "index.js",
+  "author": "lsunsi",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "xo": "^0.18.1"
+  },
+  "scripts": {
+    "test": "ava",
+    "start-test": "ava --watch"
+  },
+  "xo": {
+    "space": true,
+    "semicolon": false
+  }
+}
