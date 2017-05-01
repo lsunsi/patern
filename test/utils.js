@@ -23,11 +23,11 @@ test('zip list list ...', t => {
 })
 
 test('compare val val', t => {
-  t.false(compare([1, 2]))
-  t.true(compare([3, 3]))
-  t.false(compare([[], []]))
-  t.false(compare([{}, {}]))
-  t.true(compare([null, null]))
+  t.is(compare([1, 2]), 0)
+  t.is(compare([3, 3]), 1)
+  t.is(compare([[], []]), 0)
+  t.is(compare([{}, {}]), 0)
+  t.is(compare([null, null]), 1)
 })
 
 test('compare fn, val', t => {
