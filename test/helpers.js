@@ -1,5 +1,5 @@
 const test = require('ava')
-const {either} = require('../lib/helpers')
+const {eitherFromException} = require('../lib/helpers')
 
 test('either fromException', t => {
   const err = new Error(':(')
@@ -10,7 +10,7 @@ test('either fromException', t => {
     return ':)'
   }
 
-  const eithers = either.fromException(throws)
+  const eithers = eitherFromException(throws)
 
   t.deepEqual(t.throws(throws.bind(null, -1)), err)
   t.deepEqual(eithers(-1), ['nay', err])
