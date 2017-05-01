@@ -14,20 +14,20 @@ test('match # constants', t => {
   const l1 = [1, 2]
   const l2 = [2, 1]
 
-  t.true(match(l1, l1))
-  t.true(match(l2, l2))
+  t.deepEqual(match(l1, l1), [])
+  t.deepEqual(match(l2, l2), [])
   t.false(match(l1, l2))
   t.false(match(l2, l1))
 })
 
 test('match # functions', t => {
-  const pos = n => n > 0
-  const neg = n => n < 0
-  const not = n => !n
+  const pos = n => n > 0 ? 1 : 0
+  const neg = n => n < 0 ? 2 : 0
+  const not = n => n ? 0 : 1
 
   const pattern = [neg, not, pos]
 
-  t.true(match(pattern, [-1, 0, 1]))
+  t.deepEqual(match(pattern, [-1, 0, 1]), [-1])
   t.false(match(pattern, [0, 0, 1]))
   t.false(match(pattern, [-1, 0, 0]))
   t.false(match(pattern, [-1, 1, 1]))
