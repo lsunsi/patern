@@ -1,6 +1,6 @@
 {
   "name": "patern",
-  "version": "0.1.0-SNAPSHOT",
+  "version": "0.1.0",
   "main": "lib/index.js",
   "author": "lsunsi",
   "license": "MIT",
@@ -15,5 +15,7 @@
   "xo": {
     "space": true,
     "semicolon": false
-  }
+  },
+  "description": "Pattern matching for JavaScript, because it deserves it.",
+  "repository": "git@github.com:lsunsi/patern.git"
 }
