@@ -1,7 +1,7 @@
 {
   "name": "patern",
   "version": "0.1.0-SNAPSHOT",
-  "main": "index.js",
+  "main": "lib/index.js",
   "author": "lsunsi",
   "license": "MIT",
   "devDependencies": {
