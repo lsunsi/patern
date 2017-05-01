@@ -53,6 +53,10 @@ const qs = p.case(
   [p.$], ([x, ...xs]) =>
     [...qs(xs.filter(smaller(x))), x, ...qs(xs.filter(larger(x)))]
 )
+
+qs([]) // []
+qs([2, 1]) // [1, 2]
+qs([2, 3, 1]) // [1, 2, 3]
 ```
 
 Parsing
@@ -70,7 +74,6 @@ const sum = _with(
 )(([f1, f2]) => f1 + f2)
 
 sum // 3.3
-})
 ```
 
 ## (: hi
