@@ -1,11 +1,11 @@
 const test = require('ava')
 const {all, compare, zip, evaluate} = require('../lib/utils')
 const match = require('../lib/match')(all, compare, zip)
-const caze = require('../lib/case')(evaluate, match)
+const _case = require('../lib/case')(evaluate, match)
 const {MatchError} = require('../lib/case')
 
 test('case # fatorial', t => {
-  const fat = caze(
+  const fat = _case(
     [], -1,
     [0], 1,
     [() => 2], n => n * fat(n - 1)
@@ -17,7 +17,7 @@ test('case # fatorial', t => {
 })
 
 test('case # quicksort', t => {
-  const sort = caze(
+  const sort = _case(
     [a => a.length === 0 ? 1 : 0], [],
     [() => 2], ([x, ...xs]) =>
       [...sort(xs.filter(a => a < x)), x, ...sort(xs.filter(a => a > x))]
@@ -35,7 +35,7 @@ test('case # quicksort', t => {
 })
 
 test('case # callback', t => {
-  const cb = caze(
+  const cb = _case(
     [() => 2], a => a.error,
     [() => 1, () => 2], null,
   )
@@ -46,10 +46,10 @@ test('case # callback', t => {
 
 test('case # non-exhaustive', t => {
   t.throws(() =>
-    caze()(1)
+    _case()(1)
   , MatchError)
 
   t.throws(() =>
-    caze([0], 0, [2], 2)(1)
+    _case([0], 0, [2], 2)(1)
   , MatchError)
 })
